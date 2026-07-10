@@ -1,0 +1,77 @@
+app:
+  name: YamahaStyleStudio
+  version: 0.1.0
+  debug: false
+  environment: production
+
+audio:
+  sample_rate: 44100
+  channels: 2
+  bit_depth: 16
+  normalize: true
+  normalization_level: -3.0
+
+processing:
+  transcription:
+    model: basic_pitch
+    threshold: 0.5
+    hop_length: 512
+  tempo:
+    min_bpm: 40
+    max_bpm: 240
+  chord:
+    enabled: true
+    algorithm: viterbi
+  genre:
+    enabled: true
+    confidence_threshold: 0.7
+  structure:
+    enabled: true
+    min_segment_duration: 4
+
+source_separation:
+  model: demucs
+  stems:
+    - drums
+    - bass
+    - other
+    - vocals
+  output_stems: true
+
+synthesis:
+  sty:
+    format: sff2
+    intro_bars: 4
+    main_bars: 8
+    fill_bars: 2
+  midi:
+    format: smf_type1
+    ticks_per_quarter: 480
+    tempo_track: true
+
+output:
+  base_dir: output
+  create_subdirs: true
+  formats:
+    - sty
+    - mid
+    - intermediates
+  keep_intermediates: true
+
+models:
+  directory: src/models
+  auto_download: true
+  cache_dir: data/cache
+
+logging:
+  level: INFO
+  format: structured
+  file: logs/yamaha-studio.log
+  max_size: 10485760
+  backup_count: 5
+
+performance:
+  use_gpu: true
+  num_workers: 4
+  batch_size: 8
+  cache_models: true

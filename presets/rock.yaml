@@ -1,0 +1,37 @@
+name: Rock
+description: Preset untuk lagu genre Rock dengan emphasis pada gitar dan drum dinamis
+
+genre_id: rock
+confidence_threshold: 0.6
+
+processing:
+  tempo:
+    preferred_bpm_range: [100, 160]
+  transcription:
+    sensitivity: high
+    guitar_emphasis: true
+  chord:
+    complexity: high
+
+synthesis:
+  sty:
+    intro_bars: 8
+    main_bars: 16
+    fill_bars: 4
+    rhythm_pattern: rock_standard
+  instruments:
+    drum_kit: rock_drums
+    bass: rock_bass
+    melody: electric_guitar
+    harmony: organ
+
+voice_mapping:
+  drums: 127
+  bass: 33
+  vocals: 30
+  other: 19
+
+optimization:
+  drum_pattern: rock_4beat
+  quantization_strength: 0.9
+  velocity_adjustment: 1.1

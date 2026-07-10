@@ -1,0 +1,37 @@
+name: Dangdut
+description: Preset untuk lagu genre Dangdut dengan emphasis pada drum pattern khas dan bass groove
+
+genre_id: dangdut
+confidence_threshold: 0.6
+
+processing:
+  tempo:
+    preferred_bpm_range: [110, 140]
+  transcription:
+    sensitivity: high
+    drum_emphasis: true
+  chord:
+    complexity: simple
+
+synthesis:
+  sty:
+    intro_bars: 2
+    main_bars: 8
+    fill_bars: 1
+    rhythm_pattern: dangdut_keras
+  instruments:
+    drum_kit: dangdut_drums
+    bass: dangdut_bass
+    melody: kendang_lead
+    harmony: accordion
+
+voice_mapping:
+  drums: 127
+  bass: 33
+  vocals: 28
+  other: 24
+
+optimization:
+  drum_pattern: dangdut_2beat
+  quantization_strength: 0.7
+  velocity_adjustment: 1.2

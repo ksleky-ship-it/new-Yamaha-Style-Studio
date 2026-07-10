@@ -1,0 +1,37 @@
+name: Pop
+description: Preset untuk lagu genre Pop dengan emphasis pada vocal dan drum pattern energik
+
+genre_id: pop
+confidence_threshold: 0.6
+
+processing:
+  tempo:
+    preferred_bpm_range: [90, 130]
+  transcription:
+    sensitivity: high
+    vocal_emphasis: true
+  chord:
+    complexity: moderate
+
+synthesis:
+  sty:
+    intro_bars: 4
+    main_bars: 8
+    fill_bars: 2
+    rhythm_pattern: pop_standard
+  instruments:
+    drum_kit: pop_drums
+    bass: electric_bass
+    melody: synth_lead
+    harmony: piano
+
+voice_mapping:
+  drums: 127
+  bass: 33
+  vocals: 25
+  other: 0
+
+optimization:
+  drum_pattern: pop_4beat
+  quantization_strength: 0.8
+  velocity_adjustment: 1.0
